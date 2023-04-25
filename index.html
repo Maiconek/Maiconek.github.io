@@ -1,1 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/react-gh-pages/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/react-gh-pages/logo192.png"/><link rel="manifest" href="/react-gh-pages/manifest.json"/><title>React App</title><script defer="defer" src="/react-gh-pages/static/js/main.b1d3379f.js"></script><link href="/react-gh-pages/static/css/main.1ce2b6d5.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/react-gh-pages/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/react-gh-pages/logo192.png"/><link rel="manifest" href="/react-gh-pages/manifest.json"/><title>React App</title><script defer="defer" src="/react-gh-pages/static/js/main.b1d3379f.js"></script><link href="/react-gh-pages/static/css/main.1ce2b6d5.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script src="https://unpkg.com/react@18/umd/react.development.js"></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script><script>import React, { StrictMode } from 'react';
+      import ReactDOM from 'react-dom';
+      import { createRoot } from 'react-dom/client';
+      import App from './App';
+
+
+function Header() {
+  return (
+    <header>
+      Navigation bar
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+function Content({ data }) {
+  return (
+    <article>
+      <h1>Popular web browsers</h1>
+      {data.map((item) => (
+        <section>
+          <h3>{item.title}</h3>
+          <img src={item.image} style="width: 10%; height: 10%"></img>
+          <p>{item.text}</p>
+        </section>
+      ))}
+    </article>
+  );
+}
+
+function FooterElement() {
+  return <footer>Copyright by Bogate Interfejsy Webowe</footer>;
+}
+
+const data = [
+  {
+    title: 'Mozilla Firefox',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Firefox_logo%2C_2019.svg/1200px-Firefox_logo%2C_2019.svg.png',
+    text: 'Mozilla Firefox is an open-source web browser developed by Mozilla',
+  },
+  {
+    title: 'Google Chrome',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg',
+    text: 'Google Chrome is a web browser developed by Google, released in 2008',
+  },
+  {
+    title: 'Microsoft Edge',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Microsoft_Edge_logo_%282019%29.svg/2048px-Microsoft_Edge_logo_%282019%29.svg.png',
+    text: 'Microsoft Edge is a web browser developed by Microsoft, released in 2015',
+  },
+];
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <Header />
+    <Content data={data} />
+    <FooterElement />
+  </StrictMode>
+);</script></body></html>
